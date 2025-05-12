@@ -1,0 +1,92 @@
+.nav-link {
+    @apply block md:p-0 rounded-lg py-3 px-6 font-sans text-lg font-bold uppercase transition-all disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none;
+}
+
+.nav-link-active {
+    @apply text-blue-500 hover:bg-blue-500/10 active:bg-blue-500/30;/* text-white bg-blue-700 md:bg-transparent md:text-blue-700 dark:text-white md:dark:text-blue-500;*/
+}
+
+.nav-link-inactive {
+    @apply hover:text-blue-500 hover:bg-blue-500/10 active:bg-blue-500/30;
+}
+
+.btn {
+    @apply text-center mr-3 rounded-lg py-3 px-6 font-sans text-xs font-bold uppercase shadow-md shadow-blue-500/20 transition-all hover:shadow-lg focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none;
+}
+.btn-disabled {
+    @apply pointer-events-none opacity-50 shadow-none
+}
+.btn-primary {
+    @apply bg-blue-500 text-white hover:shadow-blue-500/40;
+}
+.btn-secondary {
+    @apply bg-amber-500 text-white hover:shadow-blue-500/40;
+}
+.btn-outline-primary {
+    @apply border border-blue-500 text-blue-500 hover:opacity-75 shadow-none hover:shadow-none focus:ring focus:ring-blue-200
+}
+.btn-outline-secondary {
+    @apply border border-amber-500 text-blue-500 hover:opacity-75 shadow-none hover:shadow-none focus:ring focus:ring-amber-200
+}
+
+.title {
+    @apply text-center font-bold text-4xl my-2 py-5;
+}
+.title span {
+    @apply py-2 px-10 border-b-4;
+}
+.bg-gradient {
+    @apply bg-gradient-to-r from-cyan-500 to-blue-700;
+}
+
+section.main-section {
+    @apply border-b-2 border-b-gray-200 py-10;
+}
+
+.card {
+    @apply relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md mx-auto;
+}
+.card span {
+    @apply text-base font-light leading-relaxed text-inherit antialiased text-gray-500;
+}
+.card h5 {
+    @apply mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-gray-900 antialiased;
+}
+.card p {
+    @apply block font-sans text-base font-light leading-relaxed text-inherit antialiased;
+}
+.card button {
+    @apply mb-3 mx-2;
+}
+
+.price-card {
+    @apply flex w-full max-w-80 flex-col bg-clip-border rounded-xl bg-gradient-to-tr from-white to-gray-50 shadow-gray-900/20 shadow-md p-8;
+}
+.price-card-header {
+    @apply pb-8 m-0 mb-8 overflow-hidden text-center text-gray-300 bg-transparent border-b rounded-none shadow-none bg-clip-border border-black/10;
+}
+.price-card-header p {
+    @apply block font-sans text-sm antialiased font-normal leading-normal uppercase;
+}
+.price-card-header h4 {
+    @apply flex justify-center gap-1 mt-6 font-sans antialiased font-normal tracking-normal text-black text-4xl
+}
+.price-card-header h4 span {
+    @apply text-2xl;
+}
+.price-card-content {
+    @apply p-0 h-48;
+}
+.price-card-content ul {
+    @apply flex flex-col gap-4;
+}
+.price-card-content li {
+    @apply flex items-center gap-4;
+}
+.price-card-content li p {
+    @apply block font-sans text-base antialiased font-normal leading-relaxed;
+}
+.follow-icon {
+    @apply bg-white sticky duration-500 border-2 border-blue-500 w-12 transform hover:-translate-y-3
+    h-12 text-2xl rounded-full hover:bg-blue-500 hover:text-white text-blue-500;
+}
