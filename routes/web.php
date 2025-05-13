@@ -1,20 +1,38 @@
 <?php
 
+use App\Http\Controllers\DetailsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('welcome');
 })->name('home');
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function() {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::middleware('auth')
+    ->controller(ProfileController::class)
+    ->prefix('profile')
+    ->name('profile.')
+    ->group(function() {
+        Route::get('/', 'edit')->name('edit');
+        Route::patch('/', 'update')->name('update');
+        Route::delete('/', 'destroy')->name('destroy');
+    });
+
+Route::patch('/details', DetailsController::class)
+    ->name('details.update')->middleware('auth');
+
+Route::middleware('auth')
+    ->controller(UploadController::class)
+    ->prefix('upload')
+    ->name('upload.')
+    ->group(function() {
+        Route::patch('/image', 'image')->name('image');
+        Route::patch('/cover', 'cover')->name('cover');
+    });
 
 require __DIR__.'/auth.php';

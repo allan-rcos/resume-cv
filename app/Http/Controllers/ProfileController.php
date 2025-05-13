@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\UserData;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -16,9 +18,17 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+
+        $user = $request->user();
+        $details = UserData::find($user->id);
+        $filename = null;
+        $cover = null;
+        if ($user_filename = $details->filename)
+            $filename = Storage::temporaryUrl('profiles\\'.$user_filename, now()->addMinutes(5));
+        if ($user_cover = $details->cover)
+            $cover = Storage::temporaryUrl('covers\\'.$user_cover, now()->addMinutes(5));
+
+        return view('profile.edit', compact('user', 'details', 'filename', 'cover'));
     }
 
     /**

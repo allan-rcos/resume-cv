@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Enums\RoleEnum;
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -13,7 +14,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable, HasRoles;
 
     /**
@@ -26,7 +27,6 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -38,16 +38,35 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * Handle the "created" event.
      *
-     * @return array<string, string>
+     * @param  User  $callback
+     * @return void
      */
-    protected function casts(): array
+    public static function created($callback)
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        $callback->syncRoles(RoleEnum::COMMUNITY->value);
+    }
+
+    /**
+     * Return the name without spaces, accents and only lowercase
+     * @return string
+     */
+    public function lower_dashed_name(): string
+    {
+        $name = strtolower($this->name);
+        $name = preg_replace('/&([a-zA-Z])(uml|acute|grave|circ|tilde|ring|slash);/', '$1', $name);
+        return str_replace(' ', '-', $name);
+    }
+
+    /**
+     * Alias method from userData.
+     * @return HasOne<UserData>
+     * @see $this::userData()
+     */
+    public function data(): HasOne
+    {
+        return $this->userData();
     }
 
     /**
@@ -57,16 +76,6 @@ class User extends Authenticatable
     public function userData(): HasOne
     {
         return $this->hasOne(UserData::class);
-    }
-
-    /**
-     * Alias method from userData.
-     * @see $this::userData()
-     * @return HasOne<UserData>
-     */
-    public function data(): HasOne
-    {
-        return $this->userData();
     }
 
     /**
@@ -142,13 +151,15 @@ class User extends Authenticatable
     }
 
     /**
-     * Handle the "created" event.
+     * Get the attributes that should be cast.
      *
-     * @param  User  $callback
-     * @return void
+     * @return array<string, string>
      */
-    public static function created($callback)
+    protected function casts(): array
     {
-        $callback->syncRoles(RoleEnum::COMMUNITY->value);
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
     }
 }

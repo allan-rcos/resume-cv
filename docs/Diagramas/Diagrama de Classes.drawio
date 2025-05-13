@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="26.2.14">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
   <diagram name="Página-1" id="HbhajBfTkZ2j8d2pvesv">
-    <mxGraphModel dx="1042" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1030" dy="630" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -238,22 +238,6 @@
         </mxCell>
         <mxCell id="_EkZtf-qwfZiBg3V9IoP-31" value="year" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;shadow=0;" parent="_EkZtf-qwfZiBg3V9IoP-28" vertex="1">
           <mxGeometry y="120" width="120" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="_EkZtf-qwfZiBg3V9IoP-33" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;" parent="1" source="LukBGXAmKgHBDDn_lNCF-15" target="xGu1E_vyQr3WHsbsqdDd-3" edge="1">
-          <mxGeometry x="-1" y="3" relative="1" as="geometry">
-            <mxPoint x="180" y="115" as="sourcePoint" />
-            <mxPoint x="300" y="930" as="targetPoint" />
-            <Array as="points">
-              <mxPoint x="240" y="100" />
-              <mxPoint x="240" y="700" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="xGu1E_vyQr3WHsbsqdDd-3" value="Badges" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="40" y="670" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="xGu1E_vyQr3WHsbsqdDd-4" value="description" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="xGu1E_vyQr3WHsbsqdDd-3" vertex="1">
-          <mxGeometry y="30" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="xGu1E_vyQr3WHsbsqdDd-7" value="1" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;rounded=0;" parent="1" source="LukBGXAmKgHBDDn_lNCF-15" target="_EkZtf-qwfZiBg3V9IoP-28" edge="1">
           <mxGeometry x="-1" y="3" relative="1" as="geometry">
