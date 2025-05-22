@@ -12,8 +12,12 @@ Route::get('/user', function(Request $request) {
 })->middleware('auth:sanctum');
 
 Route::middleware('auth:sanctum')->group(function() {
+    // Activities
     Route::apiResource('employment', EmploymentController::class);
     Route::apiResource('education', EducationController::class);
     Route::apiResource('certification', CertificationController::class);
     Route::apiResource('project', ProjectController::class);
+
+    // Persona
+
 });

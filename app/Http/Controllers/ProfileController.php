@@ -23,10 +23,10 @@ class ProfileController extends Controller
         $details = UserData::find($user->id);
         $filename = null;
         $cover = null;
-        if ($user_filename = $details->filename)
-            $filename = Storage::temporaryUrl('profiles\\'.$user_filename, now()->addMinutes(5));
-        if ($user_cover = $details->cover)
-            $cover = Storage::temporaryUrl('covers\\'.$user_cover, now()->addMinutes(5));
+        if ($details->filename && Storage::exists('profiles\\'.$details->filename))
+            $filename = Storage::temporaryUrl('profiles\\'.$details->filename, now()->addMinutes(5));
+        if ($details->cover && Storage::exists('covers\\'.$details->cover))
+            $cover = Storage::temporaryUrl('covers\\'.$details->cover, now()->addMinutes(5));
 
         return view('profile.edit', compact('user', 'details', 'filename', 'cover'));
     }

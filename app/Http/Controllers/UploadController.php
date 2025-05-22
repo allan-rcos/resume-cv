@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ImageUploadRequest;
 use App\Models\UserData;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UploadController extends Controller
 {
@@ -19,8 +21,12 @@ class UploadController extends Controller
         $user_id = Auth::id();
         $file = $request->file('image');
         $filename = $user_id.'.'.$file->getClientOriginalExtension();
-        $file->storeAs('profiles', $filename);
         $data = UserData::find($user_id);
+        try {
+            Storage::delete('profiles\\'.$data->filename);
+        } catch (Exception) {
+        }
+        $file->storeAs('profiles', $filename);
         $data->filename = $filename;
         $data->save();
 
@@ -37,8 +43,12 @@ class UploadController extends Controller
         $user_id = Auth::id();
         $file = $request->file('image');
         $cover = $user_id.'.'.$file->getClientOriginalExtension();
-        $file->storeAs('covers', $cover);
         $data = UserData::find($user_id);
+        try {
+            Storage::delete('covers\\'.$data->cover);
+        } catch (Exception) {
+        }
+        $file->storeAs('covers', $cover);
         $data->cover = $cover;
         $data->save();
 

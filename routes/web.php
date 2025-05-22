@@ -36,6 +36,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
         });
 
     Route::get('/activities', ActivityController::class)->name('activities');
+    Route::view('/persona', 'persona.edit')->name('persona');
 });
 
 require __DIR__.'/auth.php';

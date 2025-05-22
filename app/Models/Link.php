@@ -4,16 +4,17 @@ namespace App\Models;
 
 use App\Enums\SocialIconsEnum;
 use App\Traits\BelongsToOneUser;
+use Database\Factories\LinkFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model
 {
-    /** @use HasFactory<\Database\Factories\LinkFactory> */
+    /** @use HasFactory<LinkFactory> */
     use HasFactory, BelongsToOneUser;
 
-    protected $guarded = ['id', 'user_id'];
     public $timestamps = false;
+    protected $guarded = ['id'];
 
     public function icon(): string
     {

@@ -23,23 +23,25 @@
                 <button class="w-full flex items-center px-6 py-1.5 space-x-2 hover:bg-gray-200"
                         x-on:click="$('#profile-input').trigger('click')">
                     <span class="material-icons text-sm text-gray-400">&#xe3c9;</span>
-                    <span class="text-sm text-gray-700">{{__("Change profile")}}</span>
+                    <span class="text-sm text-gray-700">{{__("Profile")}}</span>
                 </button>
                 <button class="w-full flex items-center px-6 py-1.5 space-x-2 hover:bg-gray-200"
                         x-on:click="$('#cover-input').trigger('click')">
                     <span class="material-icons text-sm text-gray-400">&#xe3c9;</span>
-                    <span class="text-sm text-gray-700">{{__("Change cover")}}</span>
+                    <span class="text-sm text-gray-700">{{__("Cover")}}</span>
                 </button>
             </div>
         </div>
         <div class="w-full h-[250px] bg-gray-200">
-            <img alt="{{$user->name}} Cover Photo" id="cover-image" src="{{$cover??'#'}}"
-                 class="w-full h-full rounded-tl-lg rounded-tr-lg object-cover">
+            @isset($cover)
+                <img alt="{{$user->name}} Cover Photo" id="cover-image" src="{{$cover}}"
+                     class="w-full h-full rounded-tl-lg rounded-tr-lg object-cover">
+            @endisset
         </div>
         <div class="flex flex-col items-center -mt-20">
             <img alt="{{$user->name}}" id="profile-image"
                  src="{{$filename??'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/510px-Default_pfp.svg.png'}}"
-                 class="w-40 h-40 border-4 border-white rounded-full bg-gray-200 object-cover">
+                 class="w-40 h-40 border-4 border-white rounded-full bg-gray-50 object-cover">
         </div>
     </div>
     <script type="module">

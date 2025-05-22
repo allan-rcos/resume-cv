@@ -21,7 +21,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return ProjectResource::collection(Auth::user()->education()->with('highlights')->get());
+        return ProjectResource::collection(Auth::user()->projects()->with('highlights')->get());
     }
 
     /**
