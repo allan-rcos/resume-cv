@@ -1,61 +1,116 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Resume CV
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+O **Resume CV** é um website de compartilhamento (rede) de currículos e portfólios. No momento está em desenvolvimento, mas foi construido com Laravel, Jquery e Alpine.
 
-## About Laravel
+Seu propósito principal é **salvar os dados do usuário e** posteriormente **criar um site** dinâmico com essas informações, o site pode ser um Resume ou um Portfólio, dependendo do plano (role) do usuário.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 💻 Demonstração
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![Uso do projeto em sua ultima versão](https://raw.githubusercontent.com/allan-rcos/resume-cv/refs/heads/main/docs/gifs/resumecv.gif)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ⚙️ Tecnologias
+![Básico ao avançado de PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Blasor](https://img.shields.io/badge/Blasor-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Sanctum](https://img.shields.io/badge/Sanctum-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Spatie](https://img.shields.io/badge/Spatie-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![Jquery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+![Alpine](https://img.shields.io/badge/Alpine%20JS-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=black)
+![Javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-## Learning Laravel
+## 🛠️ Instalação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 1. Crie uma pasta e extraia o código fonte:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Exemplo pelo git:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+```bash
+gh repo clone allan-rcos/sistema-de-vendas
+```
 
-## Laravel Sponsors
+### 2. Configure o Banco de Dados:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Foi utilizado para desenvolvimento o banco [MariaDB v5.5](https://mariadb.org/download/). Lembre-se de substituir as variáveis de ambiente.
 
-### Premium Partners
+### 3. Composer:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+Instale o [Composer](https://getcomposer.org/download/) no seu computador e inicie o projeto:
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 4 Suba o banco de dados:
 
-## Code of Conduct
+Crie a tabela, caso ela ainda não exista, visualize se está funcionando com esses comandos:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+# Database
+php artisan db:show
+# Table
+php artisan db:table
+```
 
-## Security Vulnerabilities
+Rode as migrações:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan migrate
+```
 
-## License
+Rode o seeder principal para criar os Roles e Permissions do Spatie:
+```bash
+php artisan db:seed
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Opcional:** Caso deseje já começar com dados fictícios é só rodar o Seeder UserData:
+```bash
+php artisan db:seed UserDataSeeder
+```
+
+## ✨ Uso
+
+### 1. Iniciando o servidor:
+
+O Laravel funciona com um servidor NodeJs em paralelo para utilizar alguns frameworks Javascript
+(Como Jquery, TailwindCss, entre outros), portanto será necessário dois terminais ou rodar o comando em segundo plano.
+
+
+```bash
+# O comando para rodar o servidor Laravel (Back-End):
+php artisan serve
+# O comando para rodar o servidor Node (Fron-End):
+npm run dev
+```
+
+Então é só abrir o link http://127.0.0.1:8000, ele aparecerá no log do comando acima.
+
+Por padrão, existe um usuário com email `developer@dev.local` e sua senha, assim como toda senha gerada pelos seeders, é `password`.
+
+#### OBS:
+Eu utilizo o [PHPStorm](https://www.jetbrains.com/pt-br/phpstorm/) com o [Herd](https://herd.laravel.com/), o segundo pode ser substituido pelo *Laragon*, caso seja sua preferência.
+
+Se utilizar os dois, iniciar o projeto fica simples. O *Herd* altomaticamente inicia um servidor Laravel quando aberto. E você pode inicializar o *Node* do projeto pelo comando `ALT` + `F11` do *PHPStorm* (Selecionando o Dev).
+
+O *Herd* possui também um servidor Node, porem ele não roda o do projeto, e sim o dele, portante seria necessário instalar os pacotes, porém achei mais prático utilizar o comando do *PHPStorm*.
+
+## 📋 Roteiro
+
+- [ ] Persona (página para alterar Skills, Linguagens, Prêmios e Links);
+- [ ] CRUD de Resumes;
+- [ ] Configuração de Exibição do Portfólio;
+- [ ] Controlador de Resumes e Portfólios de usuários;
+- [ ] Listagem pública de resumes de determinado usuário;
+- [ ] Responsividade.
+
+## 🔔 Status do Projeto
+
+No momento este é meu projeto de foco. Estarei trabalhando/estudando nele.
+
+## ✏️ Contribuir
+
+Esse é um **projeto de treinamento**, portanto fique a vontade para cloná-lo.
+
+## 🔓 Licença
+
+[![MIT](https://img.shields.io/badge/MIT-green?style=for-the-badge)](https://choosealicense.com/licenses/mit/)
