@@ -113,4 +113,4 @@ Esse é um **projeto de treinamento**, portanto fique a vontade para cloná-lo.
 
 ## 🔓 Licença
 
-[![MIT](https://img.shields.io/badge/MIT-green?style=for-the-badge)](https://choosealicense.com/licenses/mit/)
+[![APACHE](https://img.shields.io/badge/Apache--2.0-green?style=for-the-badge)
